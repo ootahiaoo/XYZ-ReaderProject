@@ -6,6 +6,7 @@
     android:layout_marginRight="@dimen/list_cardview_margin"
     android:layout_marginBottom="@dimen/list_cardview_margin"
     android:clickable="true"
+    android:elevation="@dimen/list_cardview_elevation"
     android:focusable="true"
     android:foreground="?selectableItemBackground">
 
