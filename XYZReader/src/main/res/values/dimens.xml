@@ -12,4 +12,9 @@
     <dimen name="list_toolbar_elevation">8dp</dimen>
 
     <dimen name="list_recyclerview_bottom_padding">28dp</dimen>
+
+    <dimen name="list_cardview_margin">4dp</dimen>
+    <dimen name="list_cardview_text_title_padding">16dp</dimen>
+    <dimen name="list_cardview_text_title_padding_bottom">4dp</dimen>
+    <dimen name="list_cardview_text_subtitle_padding">16dp</dimen>
 </resources>

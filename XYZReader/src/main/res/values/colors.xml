@@ -23,4 +23,6 @@
     <color name="photo_placeholder">#ccc</color>
 
     <color name="ltgray">#ffe0e0e0</color>
+    <color name="cardview_text_title">@color/theme_dark</color>
+    <color name="cardview_text_subtitle">#6000</color>
 </resources>
