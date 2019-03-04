@@ -16,13 +16,28 @@
 -->
 
 <resources>
-    <color name="theme_primary">#FD5723</color>
-    <color name="theme_dark">#d64216</color>
-    <color name="theme_accent">#2979FF</color>
+    <color name="theme_primary">@color/red</color>
+    <color name="theme_dark">@color/dark_red</color>
+    <color name="theme_accent">@color/blue</color>
 
-    <color name="photo_placeholder">#ccc</color>
-
-    <color name="ltgray">#ffe0e0e0</color>
     <color name="cardview_text_title">@color/theme_dark</color>
-    <color name="cardview_text_subtitle">#6000</color>
+    <color name="cardview_text_subtitle">@color/dark_grey</color>
+
+    <color name="photo_placeholder">@color/grey</color>
+    <color name="detail_title_text">@color/white</color>
+    <color name="detail_subtitle_text">@color/light_grey</color>
+    <color name="detail_body_text">@color/black</color>
+
+
+    <color name="red">#FD5723</color>
+    <color name="dark_red">#d64216</color>
+
+    <color name="blue">#2979FF</color>
+    <color name="light_grey">#8fff</color>
+    <color name="grey">#ccc</color>
+    <color name="dark_grey">#6000</color>
+
+    <color name="white">#fff</color>
+    <color name="black">#000000</color>
+
 </resources>
