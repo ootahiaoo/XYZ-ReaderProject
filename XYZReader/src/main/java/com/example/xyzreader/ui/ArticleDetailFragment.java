@@ -207,8 +207,8 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
 
             } else {
                 // If date is before 1902, just show the string
-                bylineView.setText(Html.fromHtml(outputFormat.format(publishedDate) + " by <font " +
-                        "color='#ffffff'>" + mCursor.getString(ArticleLoader.Query.AUTHOR) +
+                bylineView.setText(Html.fromHtml(outputFormat.format(publishedDate) + " by <font "
+                        + "color='#ffffff'>" + mCursor.getString(ArticleLoader.Query.AUTHOR) +
                         "</font>"));
 
             }
@@ -218,7 +218,7 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                 public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
                     Bitmap bitmap = imageContainer.getBitmap();
                     if (bitmap != null) {
-                        Palette p = Palette.generate(bitmap, 12);
+                        Palette p = Palette.from(bitmap).maximumColorCount(12).generate();
                         mMutedColor = p.getDarkMutedColor(0xFF333333);
                         mPhotoView.setImageBitmap(imageContainer.getBitmap());
                         mRootView.findViewById(R.id.meta_bar).setBackgroundColor(mMutedColor);
