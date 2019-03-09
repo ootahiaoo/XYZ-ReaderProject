@@ -24,7 +24,7 @@
                     android:background="@color/photo_placeholder"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed">
                     <!--suppress AndroidLintContentDescription -->
-                    <ImageView
+                    <com.example.xyzreader.ui.DynamicHeightNetworkImageView
                         android:id="@+id/photo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
