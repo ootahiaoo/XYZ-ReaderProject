@@ -30,7 +30,8 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/app_name"
                     android:paddingLeft="@dimen/list_toolbar_content_start_margin"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/logo"
+                    android:transitionName="@string/image_transition"/>
 
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>

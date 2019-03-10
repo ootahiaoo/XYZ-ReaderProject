@@ -11,8 +11,10 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.text.Html;
@@ -22,6 +24,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -120,6 +123,10 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         mDrawInsetsFrameLayout =
                 (DrawInsetsFrameLayout) mRootView.findViewById(R.id.draw_insets_frame_layout);
+        mScrollView = (ObservableScrollView) mRootView.findViewById(R.id.scrollview);
+        mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
+        mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
+
         mDrawInsetsFrameLayout.setOnInsetsCallback(new DrawInsetsFrameLayout.OnInsetsCallback() {
             @Override
             public void onInsetsChanged(Rect insets) {
@@ -127,7 +134,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
             }
         });
 
-        mScrollView = (ObservableScrollView) mRootView.findViewById(R.id.scrollview);
         mScrollView.setCallbacks(new ObservableScrollView.Callbacks() {
             @Override
             public void onScrollChanged() {
@@ -137,9 +143,6 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                 updateStatusBar();
             }
         });
-
-        mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
-        mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -238,11 +241,15 @@ public class ArticleDetailFragment extends Fragment implements LoaderManager.Loa
                         mMutedColor = p.getDarkMutedColor(0xFF333333);
                         mRootView.findViewById(R.id.meta_bar).setBackgroundColor(mMutedColor);
                         updateStatusBar();
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            mPhotoView.setTransitionName(getString(R.string.image_transition));
+                            ActivityCompat.startPostponedEnterTransition(getActivityCast());
+                        }
                     }
                     return false;
                 }
             }).into(mPhotoView);
-
         } else {
             mRootView.setVisibility(View.GONE);
             titleView.setText("N/A");
